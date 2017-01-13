@@ -1,0 +1,19 @@
+{
+  "name": "blueo/graphqldemo",
+  "description": "GraphQL demo",
+  "type": "silverstripe-module",
+  "require": {
+    "php": ">=5.5.0",
+    "silverstripe/graphql": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/PHPUnit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blueo\\GraphQLDemo\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
