@@ -36,8 +36,8 @@ class Form extends Component {
     return (
       <form onSubmit={handleSubmit(this._submitter)}>
         <div className="form-group">
-          <label htmlFor="fileName">File Name</label>
-          <Field className="form-control" name="fileName" component="input" type="text"/>
+          <label htmlFor="FileName">File Name</label>
+          <Field className="form-control" name="FileName" component="input" type="text"/>
         </div>
         <div className="form-group">
           <label htmlFor="File">Upload</label>
