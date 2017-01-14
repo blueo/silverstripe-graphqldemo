@@ -1,5 +1,4 @@
 <?php
-
 namespace Blueo\GraphQLDemo;
 
 use SilverStripe\Control\Controller as BaseController;
@@ -9,10 +8,6 @@ use SilverStripe\View\Requirements;
 
 class GraphQLDemoController extends BaseController
 {
-
-    /**
-     * Initialise the controller, sanity check, load javascript
-     */
     public function init()
     {
         parent::init();

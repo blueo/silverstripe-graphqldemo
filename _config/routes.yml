@@ -1,0 +1,7 @@
+---
+Name: graphqldemoroutes
+---
+SilverStripe\Control\Director:
+  rules:
+    'test': 'Blueo\GraphQLDemo\GraphQLDemoController'
+---
