@@ -1,0 +1,11 @@
+---
+Name: graphqlschema
+---
+SilverStripe\GraphQL:
+  schema:
+    queries:
+      readFile: 'Blueo\GraphQLDemo\FileQueryCreator'
+    mutations:
+      uploadFileMutation: 'Blueo\GraphQLDemo\UploadFileMutationCreator'
+    types:
+      file: 'Blueo\GraphQLDemo\FileTypeCreator'
