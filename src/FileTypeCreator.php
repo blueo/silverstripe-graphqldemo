@@ -18,7 +18,7 @@ class FileTypeCreator extends TypeCreator
     {
         return [
             'ID' => ['type' => Type::nonNull(Type::id())],
-            'FileName' => ['type' => Type::string()],
+            'Name' => ['type' => Type::string()],
             'Url' => ['type' => Type::string()],
         ];
     }

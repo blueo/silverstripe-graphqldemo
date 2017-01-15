@@ -28,14 +28,14 @@ class UploadFileMutationCreator extends MutationCreator implements OperationReso
     {
       return [
         'File' => ['type' => Type::nonNull($this->manager->getType('upload'))],
-        'FileName' => ['type' => Type::string()],
+        'Name' => ['type' => Type::string()],
       ];
     }
 
     public function resolve($object, array $args, $context, ResolveInfo $info)
     {
       $file = $args['File'];
-      $file->FileName = $args['FileName'];
+      $file->Title = $args['Name'];
       $file->write(); //save file
       return $file;
     }

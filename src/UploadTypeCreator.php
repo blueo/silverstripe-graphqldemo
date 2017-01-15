@@ -44,7 +44,6 @@ class UploadTypeCreator extends TypeCreator
         $upload = new Upload();
         $file = new File();
         if ($upload->loadIntoFile($value, $file, 'Uploads')) {
-          $file->write();
           return $file;
         }
       }
