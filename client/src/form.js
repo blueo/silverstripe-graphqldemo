@@ -14,6 +14,9 @@ class Form extends Component {
   _submitter(data) {
     const {submitForm, reset} = this.props;
     const submitter = (data) => {
+      this.setState({
+        saved: false
+      });
       return submitForm(data)
       .catch((err) => {
         if (err instanceof SubmissionError) {
@@ -38,10 +41,6 @@ class Form extends Component {
     return (
       <form onSubmit={handleSubmit(this._submitter)}>
         <div className="form-group">
-          <label htmlFor="FileName">File Name</label>
-          <Field className="form-control" name="FileName" component="input" type="text"/>
-        </div>
-        <div className="form-group">
           <label htmlFor="File">Upload</label>
           <Field className="form-control" name="File" component={FileField}/>
         </div>
@@ -54,8 +53,8 @@ class Form extends Component {
 }
 
 const uploadMutation = gql`
-mutation uploadMutation($File: Upload!, $FileName: String) {
-  uploadFileMutation(File: $File, Name: $FileName) {
+mutation uploadMutation($File: Upload!) {
+  uploadFileMutation(File: $File) {
     Name,
     Url
   }
