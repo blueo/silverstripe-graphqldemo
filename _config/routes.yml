@@ -4,4 +4,6 @@ Name: graphqldemoroutes
 SilverStripe\Control\Director:
   rules:
     'test': 'Blueo\GraphQLDemo\GraphQLDemoController'
----
+    # graphql:
+    #   Controller: 'Blueo\GraphQLDemo\EndpointController'
+    #   Stage: Stage
