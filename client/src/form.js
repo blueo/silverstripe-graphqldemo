@@ -9,6 +9,7 @@ class Form extends Component {
   constructor() {
     super();
     this._submitter = this._submitter.bind(this);
+    this.state = {saved: false};
   }
   _submitter(data) {
     const {submitForm, reset} = this.props;
@@ -32,7 +33,8 @@ class Form extends Component {
     return submitter(data);
   };
   render () {
-    const {handleSubmit} = this.props;
+    const {handleSubmit, submitting} = this.props;
+    const {saved} = this.state;
     return (
       <form onSubmit={handleSubmit(this._submitter)}>
         <div className="form-group">
@@ -43,7 +45,9 @@ class Form extends Component {
           <label htmlFor="File">Upload</label>
           <Field className="form-control" name="File" component={FileField}/>
         </div>
-        <button type="submit">Submit</button>
+        <button disabled={submitting} type="submit">Submit</button>
+        {submitting && <p>Uploading file</p>}
+        {saved && <p>File uploaded</p>}
       </form>
     );
   }
@@ -51,8 +55,8 @@ class Form extends Component {
 
 const uploadMutation = gql`
 mutation uploadMutation($File: Upload!, $FileName: String) {
-  uploadFileMutation(File: $File, FileName: $FileName) {
-    FileName,
+  uploadFileMutation(File: $File, Name: $FileName) {
+    Name,
     Url
   }
 }
