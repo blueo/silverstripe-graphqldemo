@@ -50,10 +50,10 @@ class Form extends Component {
 }
 
 const uploadMutation = gql`
-mutation testMutation($File: Upload!, $FileName: String) {
-  testMutation(File: $File, FileName: $FileName) {
+mutation uploadMutation($File: Upload!, $FileName: String) {
+  uploadFileMutation(File: $File, FileName: $FileName) {
     FileName,
-    File
+    Url
   }
 }
 `;
@@ -77,7 +77,7 @@ const enhanced = compose(
           // }
         })
         .then((resp) => {
-          const {data, errors} = resp.data.updateExhibit;
+          const {data, errors} = resp.data.uploadFileMutation;
           if (errors && errors.length) {
             throw new SubmissionError(parseErrors(errors));
           }
