@@ -43,9 +43,8 @@ class UploadTypeCreator extends TypeCreator
       if (is_array($value)) {
         $upload = new Upload();
         $file = new File();
-        if ($upload->loadIntoFile($value, $file, 'Uploads')) {
-          return $file;
-        }
+        $upload->loadIntoFile($value, $file, 'Uploads');
+        return $file;
       }
       return null;
     }
