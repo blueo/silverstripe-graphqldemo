@@ -48,7 +48,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'source-map',
   plugins: [
 
   ].concat(PRODUCTION ? prodPlugins : devPlugins)
