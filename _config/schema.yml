@@ -9,3 +9,4 @@ SilverStripe\GraphQL:
       uploadFileMutation: 'Blueo\GraphQLDemo\UploadFileMutationCreator'
     types:
       file: 'Blueo\GraphQLDemo\FileTypeCreator'
+      upload: 'Blueo\GraphQLDemo\UploadTypeCreator'

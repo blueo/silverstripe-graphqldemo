@@ -27,15 +27,16 @@ class UploadFileMutationCreator extends MutationCreator implements OperationReso
     public function args()
     {
       return [
-        'File' => ['type' => Type::nonNull(CustomTypes::upload())],
+        'File' => ['type' => Type::nonNull($this->manager->getType('upload'))],
         'FileName' => ['type' => Type::string()],
       ];
     }
 
     public function resolve($object, array $args, $context, ResolveInfo $info)
     {
-        return new class {
-          public $Email = 'teststring';
-        };
+      $file = $args['File'];
+      $file->FileName = $args['FileName'];
+      $file->write(); //save file
+      return $file;
     }
 }
