@@ -4,7 +4,7 @@
   "type": "silverstripe-module",
   "require": {
     "php": ">=5.5.0",
-    "silverstripe/graphql": "dev-master"
+    "silverstripe/graphql": "dev-master#1968e1466d7a2595d9d9de04708876880f695d48"
   },
   "require-dev": {
     "phpunit/PHPUnit": "~4.8"
