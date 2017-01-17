@@ -1,0 +1,40 @@
+From 38e714d2e48e29851d53fe509d2814e2578e5e7b Mon Sep 17 00:00:00 2001
+From: Bernard Hamlin <bernard.hamlin@gmail.com>
+Date: Wed, 18 Jan 2017 11:04:50 +1300
+Subject: [PATCH] file upload hack
+
+---
+ src/Controller.php | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/src/Controller.php b/src/Controller.php
+index 8e0d2b4..8e28d0b 100644
+--- a/src/Controller.php
++++ b/src/Controller.php
+@@ -36,6 +36,7 @@ class Controller extends BaseController
+         }
+         $contentType = $request->getHeader('Content-Type') ?: $request->getHeader('content-type');
+         $isJson = preg_match('#^application/json\b#', $contentType);
++        $isFormData = preg_match('#^multipart/form-data\b#', $contentType);
+         if ($isJson) {
+             $rawBody = $request->getBody();
+             $data = json_decode($rawBody ?: '', true);
+@@ -51,7 +52,14 @@ class Controller extends BaseController
+         if (is_string($variables)) {
+             $variables = json_decode($variables, true);
+         }
+-
++        //Hack to test file uploads
++        if($isFormData) {
++          foreach ($data as $key => $value) {
++            if (is_array($value)) {
++              $variables[$key] = $value;
++            }
++          }
++        }
+         $this->setManager($manager = $this->getManager());
+ 
+         try {
+-- 
+2.11.0.windows.1
+
